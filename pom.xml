@@ -28,4 +28,8 @@
             <version>20140107</version>
         </dependency>
   </dependencies>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>com.brianschrader.aero</module>
+  </modules>
 </project>

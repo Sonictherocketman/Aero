@@ -6,7 +6,6 @@ package com.brianschrader.aero.tests;
  *
  */
 public class TestJsonObject extends Object {
-	@SuppressWarnings("unused")
 	private String ip;
 	
 	public TestJsonObject() {
