@@ -1,5 +1,6 @@
 package com.brianschrader.aero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,11 +35,15 @@ public class Common {
 					return true;
 				}
 			}
+			else if (object.getClass() == ArrayList.class) {
+				if (!((List<Object>) object).isEmpty()) {
+					return true;
+				}
+			}
 		}
 		else {
 			return true;
 		}
 		return false;
 	}
-
 }

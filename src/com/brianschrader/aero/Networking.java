@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -68,7 +69,7 @@ public class Networking {
      * @return
      * @throws Exception 
      */
-    public static JSONObject getJSONFromUrl(String url) throws Exception {
+    public static JSONObject getJSONFromUrl(String url) throws Exception, JSONException {
     	String resp = doGet(url);
     	return new JSONObject(resp);
     }
@@ -102,7 +103,7 @@ public class Networking {
     	if (methods != null) {
     		for (Method method : methods) {
     			//Find the members of the class and match them to the keys in the JSON.
-    			Pattern p = Pattern.compile("get(.+)", Pattern.CASE_INSENSITIVE);
+    			Pattern p = Pattern.compile("set(.+)", Pattern.CASE_INSENSITIVE);
 			    Matcher m = p.matcher(method.getName());
     			String member = "";
 			    while (m.find()) {
@@ -113,11 +114,16 @@ public class Networking {
 			    	if (key.equalsIgnoreCase(member)) {
 			    		//The key is in the JSON and in the class.
 			    		Object[] params = {(Object) json.get(key)};
+			    		  if(!method.isAccessible()) {
+			    			  method.setAccessible(true);
+			    		 }
 			    		//Set the value of the object for the key.
 			    		try {
 			    			method.invoke(object, params);
 			    		}
 			    		catch (Exception e) {
+			    			System.out.println(object);
+			    			System.out.println(json.get(key));
 			    			e.printStackTrace();
 			    		}
 			    	}
