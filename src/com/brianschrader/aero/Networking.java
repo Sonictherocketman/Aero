@@ -55,7 +55,6 @@ public class Networking {
 		in.close();
 		String resp = response.toString();
 		return resp;
-
 	}
 
 	/******************************************************************************************************************************/
@@ -77,7 +76,7 @@ public class Networking {
 
 	/**
 	 * Returns a Java Object of the type specified that contains the values from
-	 * the corresponding JSON response. UNTESTED
+	 * the corresponding JSON response.
 	 * 
 	 * @author Brian Schrader
 	 * @param url
@@ -91,7 +90,7 @@ public class Networking {
 
 	/**
 	 * Pass it a JSON object and a Class name, it gives you an object of that
-	 * class all nicely filled out with the data from the JSON. UNTESTED!
+	 * class all nicely filled out with the data from the JSON.
 	 * 
 	 * @author Brian Schrader
 	 * @param json
