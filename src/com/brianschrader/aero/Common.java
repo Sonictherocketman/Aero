@@ -41,9 +41,9 @@ public class Common {
 				if (!((List<Object>) object).isEmpty()) {
 					return true;
 				}
+			} else {
+				return true;
 			}
-		} else {
-			return true;
 		}
 		return false;
 	}
