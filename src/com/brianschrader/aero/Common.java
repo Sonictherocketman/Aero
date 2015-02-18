@@ -5,22 +5,26 @@ import java.util.List;
 
 /**
  * A collection of common use functions. File this under misc.
+ * 
  * @author Brian Schrader
- *
+ * 
  */
 public class Common {
 
-	/**	
-	 * Tests if the given object is not null and not empty in one method! Supa Convinient!
-	 * @author Brian Schrader 
-	 * @since  June 23, 20141
-	 * @param  object
-	 * @return Returns true if object is NOT null. 
+	/**
+	 * Tests if the given object is not null and not empty in one method! Supa
+	 * Convinient!
+	 * 
+	 * @author Brian Schrader
+	 * @since June 23, 20141
+	 * @param object
+	 * @return Returns true if object is NOT null.
+	 * 
 	 * <pre>
 	 * {@code if (Common.testForNull(object)) {
 	 *  	//Do Stuff Here 
 	 *  }}
-	 *  </pre>
+	 * </pre>
 	 */
 	@SuppressWarnings("unchecked")
 	public static boolean objectIsDefined(Object object) {
@@ -29,19 +33,16 @@ public class Common {
 				if (!((String) object).isEmpty()) {
 					return true;
 				}
-			}
-			else if (object.getClass() == List.class) {
+			} else if (object.getClass() == List.class) {
+				if (!((List<Object>) object).isEmpty()) {
+					return true;
+				}
+			} else if (object.getClass() == ArrayList.class) {
 				if (!((List<Object>) object).isEmpty()) {
 					return true;
 				}
 			}
-			else if (object.getClass() == ArrayList.class) {
-				if (!((List<Object>) object).isEmpty()) {
-					return true;
-				}
-			}
-		}
-		else {
+		} else {
 			return true;
 		}
 		return false;
