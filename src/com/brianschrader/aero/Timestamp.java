@@ -42,6 +42,38 @@ public class Timestamp extends java.sql.Timestamp {
 		}
 		return t;
 	}
+	
+	/**
+	 * Converts to a string with the pattern provided. Use SimpleDateFormat patterns.
+	 * @param pattern
+	 * @return formattedString
+	 */
+	public String toStringWithFormat(String pattern) {
+		return new SimpleDateFormat(pattern).format(new Date(this.getTime()));
+
+	}
+	
+	/**
+	 * Converts to a string with the pattern provided. Use SimpleDateFormat patterns.
+	 * @param t
+	 * @param pattern
+	 * @return formattedString
+	 */
+	public static String toStringWithFormat(Timestamp t, String pattern) {
+		return new SimpleDateFormat(pattern).format(new Date(t.getTime()));
+
+	}
+
+	/**
+	 * Converts to a string with the pattern provided. Use SimpleDateFormat patterns.
+	 * @param t
+	 * @param pattern
+	 * @return formattedString
+	 */
+	public static String toStringWithFormat(java.sql.Timestamp t, String pattern) {
+		return new SimpleDateFormat(pattern).format(new Date(t.getTime()));
+
+	}
 
 	/**
 	 * Sets the time of day to midnight.

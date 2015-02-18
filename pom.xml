@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>DarkHorse</groupId>
-  <artifactId>DarkHorse</artifactId>
+  <groupId>com.brianschrader.aero</groupId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -28,8 +27,6 @@
             <version>20140107</version>
         </dependency>
   </dependencies>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>com.brianschrader.aero</module>
-  </modules>
+  <packaging>jar</packaging>
+  <artifactId>Aero</artifactId>
 </project>
