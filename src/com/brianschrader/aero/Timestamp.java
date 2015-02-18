@@ -24,7 +24,16 @@ public class Timestamp extends java.sql.Timestamp {
 	public Timestamp(long time) {
 		super(time);
 	}
-
+	
+	/**
+	 * Create an aero Timestamp from a sql Timestamp.
+	 * 
+	 * @param timestamp
+	 */
+	public Timestamp(java.sql.Timestamp t) {
+		super(t.getTime());
+	}
+	
 	/**
 	 * Creates a Timestamp from the given string using the given pattern. If the
 	 * pattern does not match, or an exception was thrown, returns null.
@@ -50,7 +59,6 @@ public class Timestamp extends java.sql.Timestamp {
 	 */
 	public String toStringWithFormat(String pattern) {
 		return new SimpleDateFormat(pattern).format(new Date(this.getTime()));
-
 	}
 	
 	/**
@@ -61,7 +69,6 @@ public class Timestamp extends java.sql.Timestamp {
 	 */
 	public static String toStringWithFormat(Timestamp t, String pattern) {
 		return new SimpleDateFormat(pattern).format(new Date(t.getTime()));
-
 	}
 
 	/**
@@ -72,7 +79,6 @@ public class Timestamp extends java.sql.Timestamp {
 	 */
 	public static String toStringWithFormat(java.sql.Timestamp t, String pattern) {
 		return new SimpleDateFormat(pattern).format(new Date(t.getTime()));
-
 	}
 
 	/**
