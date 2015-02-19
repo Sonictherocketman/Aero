@@ -26,12 +26,28 @@ public class Timestamp extends java.sql.Timestamp {
 	}
 	
 	/**
+	 * Make a timestamp of right now.
+	 */
+	public Timestamp() {
+		this(new Date().getTime());
+	}
+	
+	/**
 	 * Create an aero Timestamp from a sql Timestamp.
 	 * 
 	 * @param timestamp
 	 */
 	public Timestamp(java.sql.Timestamp t) {
-		super(t.getTime());
+		this(t.getTime());
+	}
+	
+	/**
+	 * Create an Aero timestamp from a standard date object.
+	 * 
+	 * @param date
+	 */
+	public Timestamp(java.util.Date d) {
+		this(d.getTime());
 	}
 	
 	/**
@@ -97,7 +113,7 @@ public class Timestamp extends java.sql.Timestamp {
 	/**
 	 * Adds the number of the given field type to the timestamp. FieldType is
 	 * according to the Calendar field types. Sample Usage:
-	 * `ts.add(Calendar.DAY_OF_WEEK, 1);`
+	 * {@code ts.add(Calendar.DAY_OF_WEEK, 1);}
 	 * 
 	 * @param fieldType
 	 *            int
